@@ -1,10 +1,12 @@
-import React from 'react';
+import useFadeIn from '../hooks/useFadeIn';
 
 export default function About() {
+  const [ref, isVisible] = useFadeIn();
+
   return (
-    <section id="about" className="container py-5">
-      <h2>Sobre mí</h2>
-      <div className="card p-4 shadow">
+    <section id="about" className={`fade-in ${isVisible ? 'visible' : ''}`} ref={ref}>
+      <h2 className="section-title">👨‍💻 Sobre mí</h2>
+      <div className="card p-4 shadow text">
         <p>
           Soy Analista en Sistemas en formación, con experiencia en análisis de procesos,
           documentación de requerimientos y automatización administrativa. Me interesa

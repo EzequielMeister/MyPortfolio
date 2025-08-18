@@ -9,7 +9,8 @@ export default function useFadeIn() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.unobserve(entry.target); // deja de observar después de entrar
+        } else {
+          setIsVisible(false); // vuelve a ocultar si sale de viewport
         }
       },
       { threshold: 0.2 } // 20% visible en viewport

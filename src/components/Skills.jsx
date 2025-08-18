@@ -1,9 +1,11 @@
-import React from 'react';
+import useFadeIn from '../hooks/useFadeIn';
 
 export default function Skills() {
+  const [ref, isVisible] = useFadeIn();
+
   return (
-    <section id="skills" className="container py-5">
-      <h2>Habilidades</h2>
+    <section id="skills" className={`fade-in ${isVisible ? 'visible' : ''}`} ref={ref}>
+      <h2 className="section-title">🛠️ Habilidades</h2>
       <div className="skills-grid">
         <div className="skills-card">
           <h3>🖥️ Habilidades Técnicas</h3>
@@ -16,7 +18,6 @@ export default function Skills() {
             <li>Express.js / APIs REST / POO / Patrones de diseño</li>
           </ul>
         </div>
-
         <div className="skills-card">
           <h3>📊 Habilidades Funcionales</h3>
           <ul>

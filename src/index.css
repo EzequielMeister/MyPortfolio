@@ -1,137 +1,128 @@
 /* ====== Fuentes y body ====== */
 body {
   margin: 0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: "Inter", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #c7c7c7;
-  color: #212529;
+  background-color: #0d0d0d; /* fondo oscuro general */
+  color: #000000;
+  scroll-behavior: smooth;
+}
+
+/* ====== Header full-screen ====== */
+header.header {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(
+    135deg,
+    #0d1117,
+    #161b22
+  ); /* gradiente oscuro moderno */
+  color: #ffffff;
 }
 
 /* ====== Secciones ====== */
 section {
-  background-color: #ffffff;
-  padding: 80px 20px;
-  border-radius: 10px;
-  margin-bottom: 40px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  background-color: #161b22; /* color de fondo */
+  padding: 60px 20px;
+  margin-bottom: 0;
+  border-radius: 12px;
+  min-height: 90vh; /* ocupa casi toda la pantalla, pero deja margen natural */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centra verticalmente el contenido */
+  align-items: center;     /* centra horizontalmente el contenido */
 }
 
-/* ====== Titulos ====== */
-h1, h2, h3 {
-  color: #0d6efd;
+section.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-h2 {
+/* ====== Titulos de sección ====== */
+h2.section-title {
+  color: #58a6ff;
   font-size: 2rem;
   margin-bottom: 40px;
   text-align: center;
 }
 
-h3 {
-  font-size: 1.25rem;
-  margin-bottom: 20px;
-}
-
-/* ====== Párrafos y listas ====== */
-p, li {
-  color: #495057;
-  line-height: 1.6;
-}
-
-ul {
-  padding-left: 20px;
-}
-
-a {
-  color: #0d6efd;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
 /* ====== Cards ====== */
-.card {
-  border: none;
+.card,
+.skills-card {
+  background-color: #21262d;
+  color: #c9d1d9;
   border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.card:hover {
+.card:hover,
+.skills-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.7);
 }
 
 /* ====== Botones ====== */
 .btn-primary {
-  background-color: #0d6efd;
-  border-color: #0d6efd;
-  font-weight: 600;
-  transition: background-color 0.2s, transform 0.2s;
+  background-color: #238636;
+  border: none;
   color: #fff;
   padding: 8px 18px;
   border-radius: 6px;
+  font-weight: 600;
+  transition: background-color 0.2s, transform 0.2s;
 }
 
 .btn-primary:hover {
-  background-color: #0b5ed7;
+  background-color: #2ea043;
   transform: translateY(-2px);
 }
 
 .btn-secondary {
-  background-color: #6c757d;
-  border-color: #6c757d;
-  color: #fff;
+  background-color: #8b949e;
+  border: none;
+  color: #0d1117;
   padding: 8px 18px;
   border-radius: 6px;
 }
 
 .btn-secondary:hover {
-  background-color: #5c636a;
+  background-color: #c9d1d9;
 }
 
 /* ====== Navbar ====== */
 .navbar {
-  background-color: #ffffff;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  background-color: rgba(22, 27, 34, 0.95);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
 }
 
 .navbar-brand {
   font-weight: 700;
   font-size: 1.5rem;
-  color: #0e0e0e !important;
+  color: #58a6ff !important;
 }
 
 .nav-link {
   font-weight: 500;
-  color: #495057 !important;
+  color: #c9d1d9 !important;
   transition: color 0.2s;
 }
 
 .nav-link:hover {
-  color: #0d6efd !important;
+  color: #58a6ff !important;
 }
 
-/* ====== Habilidades Grid ====== */
+/* ====== Skills Grid ====== */
 .skills-grid {
   display: grid;
   gap: 30px;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-}
-
-.skills-card {
-  padding: 20px;
-  border-radius: 12px;
-  background-color: #ffffff;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-}
-
-.skills-card h3 {
-  display: flex;
-  align-items: center;
-  gap: 8px;
 }
