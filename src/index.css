@@ -4,8 +4,8 @@ body {
   font-family: "Inter", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #0d0d0d; /* fondo oscuro general */
-  color: #000000;
+  background-color: #0d0d0d;
+  color: #c9d1d9;
   scroll-behavior: smooth;
 }
 
@@ -16,28 +16,24 @@ header.header {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: linear-gradient(
-    135deg,
-    #0d1117,
-    #161b22
-  ); /* gradiente oscuro moderno */
+  background: linear-gradient(135deg, #0d1117, #161b22);
   color: #ffffff;
 }
 
 /* ====== Secciones ====== */
 section {
-  background-color: #161b22; /* color de fondo */
+  background-color: #161b22;
   padding: 60px 20px;
-  margin-bottom: 0;
+  margin-bottom: 0; 
   border-radius: 12px;
-  min-height: 90vh; /* ocupa casi toda la pantalla, pero deja margen natural */
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* centra verticalmente el contenido */
-  align-items: center;     /* centra horizontalmente el contenido */
+  justify-content: center;
+  align-items: center;
+  opacity: 0; 
+  transform: translateY(30px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 section.fade-in.visible {
@@ -46,20 +42,26 @@ section.fade-in.visible {
 }
 
 /* ====== Titulos de sección ====== */
-h2.section-title {
-  color: #58a6ff;
-  font-size: 2rem;
-  margin-bottom: 40px;
+h1, h2.section-title {
+  color: #ffffff;
   text-align: center;
+  margin-bottom: 40px;
 }
 
-/* ====== Cards ====== */
+p, li {
+  color: #c9d1d9;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* ====== Cards (Skills / About / Projects) ====== */
 .card,
 .skills-card {
-  background-color: #21262d;
-  color: #c9d1d9;
+  background-color: #21262d; /* fondo oscuro */
+  color: #c9d1d9; /* texto legible */
   border-radius: 12px;
   padding: 20px;
+  margin: 10px 0;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
   transition: transform 0.2s, box-shadow 0.2s;
 }
@@ -120,9 +122,16 @@ h2.section-title {
   color: #58a6ff !important;
 }
 
-/* ====== Skills Grid ====== */
-.skills-grid {
+/* ====== Grids ====== */
+.skills-grid,
+.projects-grid {
   display: grid;
   gap: 30px;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* ====== Títulos de proyectos ====== */
+#projects h3 {
+  color: #ffffff;
+  margin-bottom: 12px;
 }
