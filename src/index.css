@@ -20,26 +20,32 @@ header.header {
   color: #ffffff;
 }
 
-/* ====== Secciones ====== */
+/* Color base de secciones */
 section {
-  background-color: #161b22;
-  padding: 60px 20px;
-  margin-bottom: 0; 
-  border-radius: 12px;
-  min-height: 90vh;
+  background-color: #161b22; /* color oscuro principal */
+  padding: 4rem 2rem;
+  min-height: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  opacity: 0; 
-  transform: translateY(30px);
+
+  /* fade-in */
+  opacity: 0;
   transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
+/* Secciones visibles con fade-in */
 section.fade-in.visible {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Alternar colores de fondo */
+section:nth-of-type(even) {
+  background-color: #1f242c; /* color un poco más claro para secciones pares */
+}
+ 
 
 /* ====== Titulos de sección ====== */
 h1, h2.section-title {
@@ -49,7 +55,7 @@ h1, h2.section-title {
 }
 
 p, li {
-  color: #c9d1d9;
+  color: #ebe5e9;
   text-align: center;
   line-height: 1.6;
 }
