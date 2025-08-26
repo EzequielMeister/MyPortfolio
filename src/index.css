@@ -1,12 +1,13 @@
 /* ====== Fuentes y body ====== */
 body {
-  margin: 0;
   font-family: "Inter", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #0d0d0d;
   color: #c9d1d9;
   scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
 }
 
 /* ====== Header full-screen ====== */
@@ -20,32 +21,30 @@ header.header {
   color: #ffffff;
 }
 
-/* Color base de secciones */
+/* ====== Secciones ====== */
 section {
-  background-color: #161b22; /* color oscuro principal */
   padding: 4rem 2rem;
   min-height: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  /* fade-in */
   opacity: 0;
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  transition: opacity 1s ease-out;
 }
 
-/* Secciones visibles con fade-in */
 section.fade-in.visible {
   opacity: 1;
-  transform: translateY(0);
 }
 
-/* Alternar colores de fondo */
-section:nth-of-type(even) {
-  background-color: #1f242c; /* color un poco más claro para secciones pares */
+/* Alternancia de colores */
+section:nth-of-type(odd) {
+  background-color: #161b22;
 }
- 
+
+section:nth-of-type(even) {
+  background-color: #1e242d;
+}
 
 /* ====== Titulos de sección ====== */
 h1, h2.section-title {
@@ -56,15 +55,14 @@ h1, h2.section-title {
 
 p, li {
   color: #ebe5e9;
-  text-align: center;
   line-height: 1.6;
 }
 
 /* ====== Cards (Skills / About / Projects) ====== */
 .card,
 .skills-card {
-  background-color: #21262d; /* fondo oscuro */
-  color: #c9d1d9; /* texto legible */
+  background-color: #21262d;
+  color: #c9d1d9;
   border-radius: 12px;
   padding: 20px;
   margin: 10px 0;
@@ -72,11 +70,63 @@ p, li {
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
+/* Hover */
 .card:hover,
 .skills-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.7);
 }
+
+/* ====== Skills Grid ====== */
+.skills-grid {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  justify-items: stretch;
+}
+
+.skills-card ul {
+  text-align: left;
+  padding-left: 20px;
+}
+
+/* ====== Projects Grid ====== */
+.projects-grid {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.projects-grid .card {
+  background-color: #161b22; /* fondo un poco más oscuro que skills */
+  color: #c9d1d9;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.projects-grid .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.7);
+}
+
+.projects-grid .card h3 {
+  color: #58a6ff; /* título azul */
+  margin-bottom: 12px;
+}
+
+.projects-grid .card p {
+  color: #c9d1d9; 
+  text-align: left;
+  line-height: 1.5;
+}
+
+.projects-grid .card a.btn-primary {
+  margin-top: 10px;
+  display: inline-block;
+}
+
 
 /* ====== Botones ====== */
 .btn-primary {
@@ -128,16 +178,31 @@ p, li {
   color: #58a6ff !important;
 }
 
-/* ====== Grids ====== */
-.skills-grid,
-.projects-grid {
-  display: grid;
-  gap: 30px;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+/* ===== Loader ===== */
+.container--loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0d0d0d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
-/* ====== Títulos de proyectos ====== */
-#projects h3 {
-  color: #ffffff;
-  margin-bottom: 12px;
+.loader {
+  border: 6px solid #21262d;
+  border-top: 6px solid #238636;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

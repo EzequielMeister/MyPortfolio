@@ -1,24 +1,16 @@
 import useFadeIn from '../hooks/useFadeIn';
+import { texts } from '../texts';
 
-export default function About() {
+export default function About({ language }) {
   const [ref, isVisible] = useFadeIn();
 
   return (
     <section id="about" className={`fade-in ${isVisible ? 'visible' : ''}`} ref={ref}>
-      <h2 className="section-title">👨‍💻 Sobre mí</h2>
+      <h2 className="section-title">{texts[language].about.title}</h2>
       <div className="skills-grid">
         <div className="skills-card">
-          <p>
-            Soy Analista en Sistemas en formación, con experiencia en análisis de procesos,
-            documentación de requerimientos y automatización administrativa. Me interesa
-            desarrollarme en roles técnico-funcionales, colaborando con usuarios y equipos de
-            desarrollo.
-          </p>
-          <p>
-            Tengo conocimientos en Java, JavaScript y SQL, y experiencia con 
-            Spring Boot, Node.js y React, que me permiten traducir necesidades
-            del negocio en soluciones tecnológicas efectivas.
-          </p>
+          <p>{texts[language].about.p1}</p>
+          <p>{texts[language].about.p2}</p>
         </div>
       </div>
     </section>

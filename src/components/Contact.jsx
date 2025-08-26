@@ -1,11 +1,13 @@
 import useFadeIn from '../hooks/useFadeIn';
+import { texts } from '../texts';
 
-export default function Contact() {
+export default function Contact({ language }) {
   const [ref, isVisible] = useFadeIn();
+  const t = texts[language].contact;
 
   return (
     <section id="contact" className={`fade-in ${isVisible ? 'visible' : ''}`} ref={ref}>
-      <h2 className="section-title">📬 Contacto</h2>
+      <h2 className="section-title">{t.title}</h2>
       <div className="text-center">
         <a href="mailto:ezee7771@gmail.com" className="me-3 btn btn-secondary">Email</a>
         <a href="https://www.linkedin.com/in/ezequiel-meister-a75115242/"
